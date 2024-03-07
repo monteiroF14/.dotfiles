@@ -1,0 +1,10 @@
+[user]
+
+name = André Monteiro
+email = 119819402+monteiroF14@users.noreply.github.com
+
+[alias]
+
+co = checkout
+ci = commit
+br = branch
