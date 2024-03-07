@@ -8,3 +8,10 @@ email = 119819402+monteiroF14@users.noreply.github.com
 co = checkout
 ci = commit
 br = branch
+
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential

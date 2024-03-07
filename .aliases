@@ -1,7 +1,5 @@
 # vim aliases
-#alias vim="nvim"
-alias vim="vi"
-#alias vim="$VIM"
+alias v="nvim"
 
 # nano alias
 alias n="nano -c --softwrap --locking"
@@ -14,16 +12,12 @@ alias ....='cd ../../../'
 
 alias rm="rm -rf"
 
-# apt aliases
-alias update='sudo apt-get upgrade'
-alias apt-get='sudo apt-get'
-
 # terminal aliases
 alias c="clear"
 alias l="ls -lha"
 
 # progress bar in copy?
-alias cpv='rsync -ah --info=progress2' 
+alias cpv='rsync -ah --info=progress2'
 
 # git aliases
 alias yoink="git checkout master && git fetch upstream master && git merge upstream/master"
@@ -32,5 +26,4 @@ alias gs="git status"
 alias ga="git add"
 alias gc="git commit -m"
 
-echo "aliases loaded!"
-
+echo "all aliases loaded!"

@@ -5,10 +5,3 @@ function helpmsg() {
 	print_default '  --all: --gui + --arch'
 	print_default ""
 }
-
-source ~/.dotfiles/link.sh
-
-if [ -e $all_linked ]; then
-	echo "all files linked"
-fi
-

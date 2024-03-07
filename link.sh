@@ -2,40 +2,20 @@
 
 set -u
 
-all_linked=false
+link_file() {
+	local source_file="$1"
+	local target_file="${2:-$source_file}"
 
-# list of dotfiles to link
-declare -A dotfiles=(
-	["~/.gitconfig"]="false",
-	["~/.bash_aliases"]="false"
-)
-
-# link the git config
-if [ ! -e ~/.gitconfig ]; then
-	ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
-	dotfiles["~/.gitconfig"]="true"
-fi
-
-if [ ! -e ~/.bash_aliases ]; then
-	ln -s ~/.dotfiles/.aliases ~/.bash_aliases
-	dotfiles["~/.bash_aliases"]="true"
-fi
-
-echo "dotfiles variable:"
-for key in "${!dotfiles[@]}"; do
-    echo "$key: ${dotfiles[$key]}"
-done
-
-for file in "${!dotfiles[@]}"; do
-	all_linked=false
-	if [ -e "$file" ]; then 
-		echo $file
+	if [ ! -e "$target_file" ]; then
+		ln -s "$HOME/.dotfiles/$source_file" "$target_file" || {
+			echo "Error: Failed to link $source_file to $target_file"
+			exit 1
+		}
+		echo "Linked $source_file to $target_file"
 	fi
-done
+}
 
-echo "dotfiles variable:"
-for key in "${!dotfiles[@]}"; do
-    echo "$key: ${dotfiles[$key]}"
-done
+link_file ".gitconfig"
+link_file ".aliases" ".bash_aliases"
 
-[[ $all_linked == true ]] && echo "all files linked" || echo "some files failed linking"
+echo "all files linked!"
