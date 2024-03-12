@@ -1,8 +1,7 @@
+#! /usr/bin/bash
+
 # vim aliases
 alias v="nvim"
-
-# nano alias
-alias n="nano -c --softwrap --locking"
 
 # directory aliases
 alias cd..='cd ..'
@@ -25,5 +24,3 @@ alias yoink="git checkout master && git fetch upstream master && git merge upstr
 alias gs="git status"
 alias ga="git add"
 alias gc="git commit -m"
-
-echo "all aliases loaded!"
